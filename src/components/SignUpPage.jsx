@@ -1,5 +1,6 @@
 import styles from "./signPage.module.css";
 import Union from "../images/Union.png";
+import Input from "../inputs/Input";
 function SignUpPage() {
   return (
     <>
@@ -10,9 +11,24 @@ function SignUpPage() {
         <img src={Union} alt="logo" />
         <h4>فرم ثبت نام</h4>
         <div className={styles.actives}>
-          <input type="text" placeholder="نام کاربری" />
-          <input type="password" placeholder="رمز عبور" />
-          <input type="password" placeholder=" تکرار رمز عبور" />
+          <Input
+            type="text"
+            placeholder="نام کاربری"
+            error={errors.username?.message}
+            {...register("username")}
+          />
+          <Input
+            type="password"
+            placeholder="رمز عبور"
+            error={errors.password?.message}
+            {...register("password")}
+          />
+          <Input
+            type="password"
+            placeholder=" تکرار رمز عبور"
+            error={errors.password?.message}
+            {...register("repeat pass")}
+          />
           <button>ثبت نام</button>
         </div>
         <div className={styles.span}>
