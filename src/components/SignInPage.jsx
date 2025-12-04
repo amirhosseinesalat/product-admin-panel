@@ -14,7 +14,9 @@ function SignInPage() {
           <input type="password" placeholder="رمز عبور" />
           <button>ورود</button>
         </div>
-        <span>ایجاد حساب کاربری</span>
+        <div className={styles.span}>
+          <span>ایجاد حساب کاربری!</span>
+        </div>
       </div>
     </>
   );
