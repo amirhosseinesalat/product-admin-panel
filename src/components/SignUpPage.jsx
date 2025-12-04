@@ -1,6 +1,6 @@
 import styles from "./signPage.module.css";
 import Union from "../images/Union.png";
-function SignInPage() {
+function SignUpPage() {
   return (
     <>
       <div className={styles.h2}>
@@ -8,18 +8,19 @@ function SignInPage() {
       </div>
       <div className={styles.container}>
         <img src={Union} alt="logo" />
-        <h4>فرم ورود</h4>
+        <h4>فرم ثبت نام</h4>
         <div className={styles.actives}>
           <input type="text" placeholder="نام کاربری" />
           <input type="password" placeholder="رمز عبور" />
-          <button>ورود</button>
+          <input type="password" placeholder=" تکرار رمز عبور" />
+          <button>ثبت نام</button>
         </div>
         <div className={styles.span}>
-          <span>ایجاد حساب کاربری!</span>
+          <span>حساب کاربری دارید؟</span>
         </div>
       </div>
     </>
   );
 }
 
-export default SignInPage;
+export default SignUpPage;
