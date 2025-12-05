@@ -1,11 +1,5 @@
 
-body {
-  text-align: center;
-  justify-content: center;
-  overflow-y: hidden;
-  background-color: #f7f8f8;
-  direction: rtl;
-}
+
 .h2 {
   font-size: 19px;
   font-weight: 400;

@@ -1,11 +1,23 @@
 import { AiOutlineSearch } from "react-icons/ai";
 import styles from "./SearchBox.module.css";
+import profile from "../images/profile.png";
 function SearchBox() {
   return (
-    <div>
+    <div className={styles.header}>
       <div className={styles.searchBox}>
-        <input type="text" placeholder="جستجو کالا" />
-        <AiOutlineSearch size={22} color="#555" />
+        <AiOutlineSearch size={20} color="#777" />
+        <input type="text" placeholder="جستجو کالا..." />
+      </div>
+
+      <div className={styles.rightSection}>
+        <div className={styles.divider}></div>
+
+        <img className={styles.avatar} src={profile} alt="profile" />
+
+        <div className={styles.userInfo}>
+          <p className={styles.name}>امیرحسین اصالت</p>
+          <span className={styles.role}>مدیر</span>
+        </div>
       </div>
     </div>
   );
