@@ -6,17 +6,22 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { login } from "../api/auth";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 function SignInPage() {
-  function submitHandler(data) {
-    console.log(data);
-  }
+  const navigate = useNavigate();
 
   async function submitHandler(data) {
     try {
       const res = await login(data);
-      console.log("LOGIN SUCCESS:", res.data);
+
+      toast.success("ورود موفقیت آمیز بود!");
+
+      localStorage.setItem("token", res.data.token);
+
+      navigate("/dashboard");
     } catch (err) {
-      console.log("LOGIN ERROR:", err.response?.data || err.message);
+      toast.error(err.response?.data?.message || "خطایی رخ داد!");
     }
   }
 

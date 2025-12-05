@@ -14,8 +14,18 @@ function SignUpPage() {
     resolver: yupResolver(signupSchema),
   });
 
-  function submitHandler(data) {
-    console.log("SIGNUP DATA:", data);
+  async function submitHandler(data) {
+    try {
+      const res = await registerUser(data);
+
+      toast.success("ثبت‌نام موفق! در حال ورود...");
+
+      localStorage.setItem("token", res.data.token);
+
+      navigate("/dashboard");
+    } catch (err) {
+      toast.error(err.response?.data?.message || "خطا در ثبت‌نام!");
+    }
   }
 
   return (
@@ -52,7 +62,11 @@ function SignUpPage() {
             />
 
             <button type="submit">ثبت نام</button>
-            <Link to="/signin" className={styles.span} style={{marginTop: "5px"}}>
+            <Link
+              to="/signin"
+              className={styles.span}
+              style={{ marginTop: "5px" }}
+            >
               <span>حساب کاربری دارید؟</span>
             </Link>
           </div>
