@@ -1,40 +1,63 @@
 import styles from "./signPage.module.css";
 import Union from "../images/Union.png";
 import Input from "../inputs/Input";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { signupSchema } from "../validation/signupSchema";
+import { Link } from "react-router-dom";
 function SignUpPage() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(signupSchema),
+  });
+
+  function submitHandler(data) {
+    console.log("SIGNUP DATA:", data);
+  }
+
   return (
     <>
-      <div className={styles.h2}>
-        <h2>بوت کمپ بوتواستارت</h2>
-      </div>
-      <div className={styles.container}>
-        <img src={Union} alt="logo" />
-        <h4>فرم ثبت نام</h4>
-        <div className={styles.actives}>
-          <Input
-            type="text"
-            placeholder="نام کاربری"
-            error={errors.username?.message}
-            {...register("username")}
-          />
-          <Input
-            type="password"
-            placeholder="رمز عبور"
-            error={errors.password?.message}
-            {...register("password")}
-          />
-          <Input
-            type="password"
-            placeholder=" تکرار رمز عبور"
-            error={errors.password?.message}
-            {...register("repeat pass")}
-          />
-          <button>ثبت نام</button>
+      <form onSubmit={handleSubmit(submitHandler)}>
+        <div className={styles.h2}>
+          <h2>بوت کمپ بوتواستارت</h2>
         </div>
-        <div className={styles.span}>
-          <span>حساب کاربری دارید؟</span>
+
+        <div className={styles.container}>
+          <img src={Union} alt="logo" />
+          <h4>فرم ثبت نام</h4>
+
+          <div className={styles.actives}>
+            <Input
+              type="text"
+              placeholder="نام کاربری"
+              error={errors.username?.message}
+              {...register("username")}
+            />
+
+            <Input
+              type="password"
+              placeholder="رمز عبور"
+              error={errors.password?.message}
+              {...register("password")}
+            />
+
+            <Input
+              type="password"
+              placeholder="تکرار رمز عبور"
+              error={errors.confirmPassword?.message}
+              {...register("confirmPassword")}
+            />
+
+            <button type="submit">ثبت نام</button>
+            <Link to="/signin" className={styles.span} style={{marginTop: "5px"}}>
+              <span>حساب کاربری دارید؟</span>
+            </Link>
+          </div>
         </div>
-      </div>
+      </form>
     </>
   );
 }
