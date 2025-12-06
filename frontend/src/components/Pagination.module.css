@@ -1,0 +1,59 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.pages {
+  display: flex;
+  gap: 8px;
+}
+
+/* شماره صفحات */
+.pageNumber {
+  padding: 6px 12px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.pageNumber:hover {
+  background: #f0f0f0;
+}
+
+.selected {
+  background: #55a3f0;
+  color: white;
+  border-color: #55a3f0;
+}
+
+/* دکمه‌های قبلی/بعدی */
+.btn {
+  padding: 6px 16px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* فعال = آبی */
+.active {
+  background: #55a3f0;
+  color: white;
+}
+
+.active:hover {
+  background: #3b8bd8;
+}
+
+/* غیرفعال = طوسی */
+.disabled {
+  background: #cfcfcf;
+  color: #666;
+  cursor: not-allowed;
+}
