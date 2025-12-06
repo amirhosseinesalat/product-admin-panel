@@ -13,11 +13,11 @@ function Dashboard() {
       <SearchBox />
       <ManageProducts />
       <TableProducts products={products} />
-      {/* <Pagination
+      <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
         onPageChange={setCurrentPage}
-      /> */}
+      />
     </>
   );
 }
