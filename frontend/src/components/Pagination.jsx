@@ -3,7 +3,6 @@ import styles from "./Pagination.module.css";
 function Pagination({ currentPage, totalPages, onPageChange }) {
   return (
     <div className={styles.pagination}>
-      {/* PREVIOUS BUTTON */}
       <button
         className={`${styles.btn} ${
           currentPage === 1 ? styles.disabled : styles.active
@@ -14,7 +13,6 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
         قبلی
       </button>
 
-    {/* PAGE NUMBERS */}
       <div className={styles.pages}>
         {Array.from({ length: totalPages }, (_, i) => i + 1).map((num) => (
           <button
@@ -29,7 +27,6 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
         ))}
       </div>
 
- 
       <button
         className={`${styles.btn} ${
           currentPage === totalPages ? styles.disabled : styles.active

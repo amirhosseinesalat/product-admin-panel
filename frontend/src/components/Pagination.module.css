@@ -11,7 +11,6 @@
   gap: 8px;
 }
 
-/* شماره صفحات */
 .pageNumber {
   padding: 6px 12px;
   border: 1px solid #dcdcdc;
@@ -31,7 +30,6 @@
   border-color: #55a3f0;
 }
 
-/* دکمه‌های قبلی/بعدی */
 .btn {
   padding: 6px 16px;
   border-radius: 8px;
@@ -41,7 +39,6 @@
   transition: 0.2s;
 }
 
-/* فعال = آبی */
 .active {
   background: #55a3f0;
   color: white;
@@ -51,7 +48,6 @@
   background: #3b8bd8;
 }
 
-/* غیرفعال = طوسی */
 .disabled {
   background: #cfcfcf;
   color: #666;
