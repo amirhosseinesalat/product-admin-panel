@@ -1,7 +1,7 @@
 import styles from "./ManageProducts.module.css";
 import { CiBoxList } from "react-icons/ci";
 
-function ManageProducts() {
+function ManageProducts({ onAdd }) {
   return (
     <div className={styles.headerRight}>
       <div className={styles.title}>
@@ -9,7 +9,9 @@ function ManageProducts() {
         <span>مدیریت کالا</span>
       </div>
 
-      <button className={styles.addBtn}>افزودن محصول</button>
+      <button className={styles.addBtn} onClick={onAdd}>
+        افزودن محصول
+      </button>
     </div>
   );
 }
