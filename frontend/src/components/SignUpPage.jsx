@@ -4,8 +4,13 @@ import Input from "../inputs/Input";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signupSchema } from "../validation/signupSchema";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import { registerUser } from "../api/auth";
+
 function SignUpPage() {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -16,7 +21,13 @@ function SignUpPage() {
 
   async function submitHandler(data) {
     try {
-      const res = await registerUser(data);
+     
+      const sendData = {
+        username: data.username,
+        password: data.password,
+      };
+
+      const res = await registerUser(sendData);
 
       toast.success("ثبت‌نام موفق! در حال ورود...");
 
@@ -62,11 +73,8 @@ function SignUpPage() {
             />
 
             <button type="submit">ثبت نام</button>
-            <Link
-              to="/signin"
-              className={styles.span}
-              style={{ marginTop: "5px" }}
-            >
+
+            <Link to="/signin" className={styles.span}>
               <span>حساب کاربری دارید؟</span>
             </Link>
           </div>

@@ -2,6 +2,10 @@ import styles from "./TableProducts.module.css";
 import { FiEdit, FiTrash } from "react-icons/fi";
 
 function TableProducts({ products }) {
+  if (!Array.isArray(products)) {
+    return <div>در حال بارگذاری...</div>;
+  }
+
   return (
     <div className={styles.wrapper}>
       <table className={styles.table}>
@@ -26,7 +30,7 @@ function TableProducts({ products }) {
             products.map((p) => (
               <tr key={p.id}>
                 <td>{p.name}</td>
-                <td>{p.stock}</td>
+                <td>{p.quantity}</td>
                 <td>{p.price}</td>
                 <td>{p.id}</td>
                 <td className={styles.actions}>

@@ -1,7 +1,7 @@
 .headerRight {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* دقیقا دکمه می‌ره چپ */
+  justify-content: space-between; 
   width: 100%;
   margin-top: 50px;
 }

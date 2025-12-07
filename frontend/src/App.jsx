@@ -7,25 +7,24 @@ import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
-    // <>
-    //   <Toaster position="top-center" />
+    <>
+      <Toaster position="top-center" />
 
-    //   <Routes>
-    //     <Route index element={<SignInPage />} />
-    //     <Route path="/signin" element={<SignInPage />} />
-    //     <Route path="/signup" element={<SignUpPage />} />
+      <Routes>
+        <Route index element={<SignInPage />} />
+        <Route path="/signin" element={<SignInPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
 
-    //     <Route
-    //       path="/dashboard"
-    //       element={
-    //         <ProtectedRoute>
-    //           <Dashboard />
-    //         </ProtectedRoute>
-    //       }
-    //     />
-    //   </Routes>
-    // </>
-    <Dashboard />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </>
   );
 }
 export default App;

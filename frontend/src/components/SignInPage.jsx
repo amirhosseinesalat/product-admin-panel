@@ -15,13 +15,12 @@ function SignInPage() {
     try {
       const res = await login(data);
 
-      toast.success("ورود موفقیت آمیز بود!");
-
       localStorage.setItem("token", res.data.token);
 
+      toast.success("ورود موفقیت آمیز!");
       navigate("/dashboard");
     } catch (err) {
-      toast.error(err.response?.data?.message || "خطایی رخ داد!");
+      toast.error("نام کاربری یا رمز اشتباه است");
     }
   }
 
@@ -32,6 +31,7 @@ function SignInPage() {
   } = useForm({
     resolver: yupResolver(validateSchema),
   });
+
   return (
     <>
       <form onSubmit={handleSubmit(submitHandler)}>
