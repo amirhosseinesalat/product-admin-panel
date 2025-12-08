@@ -1,7 +1,7 @@
 import styles from "./TableProducts.module.css";
 import { FiEdit, FiTrash } from "react-icons/fi";
 
-function TableProducts({ products }) {
+function TableProducts({ products ,onDelete}) {
   if (!Array.isArray(products)) {
     return <div>در حال بارگذاری...</div>;
   }
@@ -37,7 +37,10 @@ function TableProducts({ products }) {
                   <button className={styles.edit}>
                     <FiEdit />
                   </button>
-                  <button className={styles.delete}>
+                  <button
+                    className={styles.delete}
+                    onClick={() => onDelete(p)}
+                  >
                     <FiTrash />
                   </button>
                 </td>
