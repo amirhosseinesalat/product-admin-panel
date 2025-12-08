@@ -39,7 +39,6 @@ function Dashboard() {
         quantity: data.stock,
       });
 
-      // اضافه شدن به لیست
       setProducts((prev) => [...prev, res.data]);
 
       toast.success("محصول اضافه شد");

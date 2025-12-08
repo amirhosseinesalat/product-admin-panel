@@ -12,6 +12,10 @@ function SignInPage() {
   const navigate = useNavigate();
 
   async function submitHandler(data) {
+    async function submitHandler(data) {
+  console.log("DATA SENT →", data);
+}
+
     try {
       const res = await login(data);
 

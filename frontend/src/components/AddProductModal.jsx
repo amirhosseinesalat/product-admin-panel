@@ -21,10 +21,12 @@ function AddProductModal({ onClose, onSubmit }) {
   return (
     <div className={styles.backdrop}>
       <div className={styles.modal}>
-        <h3>افزودن محصول جدید</h3>
+        <h3 className={styles.title}>ایجاد محصول جدید</h3>
 
         <form onSubmit={handleSubmit} className={styles.form}>
+          <label className={styles.label}>نام کالا</label>
           <input
+            className={styles.input}
             type="text"
             placeholder="نام کالا"
             value={name}
@@ -32,15 +34,19 @@ function AddProductModal({ onClose, onSubmit }) {
             required
           />
 
+          <label className={styles.label}>تعداد موجودی</label>
           <input
+            className={styles.input}
             type="number"
-            placeholder="موجودی"
+            placeholder="تعداد"
             value={stock}
             onChange={(e) => setStock(e.target.value)}
             required
           />
 
+          <label className={styles.label}>قیمت</label>
           <input
+            className={styles.input}
             type="number"
             placeholder="قیمت"
             value={price}
@@ -49,11 +55,11 @@ function AddProductModal({ onClose, onSubmit }) {
           />
 
           <div className={styles.actions}>
-            <button type="submit" className={styles.addBtn}>
-              افزودن
+            <button type="submit" className={styles.submit}>
+              ایجاد
             </button>
-            <button type="button" className={styles.cancelBtn} onClick={onClose}>
-              لغو
+            <button type="button" onClick={onClose} className={styles.cancel}>
+              انصراف
             </button>
           </div>
         </form>

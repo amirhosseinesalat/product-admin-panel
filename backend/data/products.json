@@ -94,5 +94,11 @@
     "name": "24",
     "price": 42,
     "quantity": 42
+  },
+  {
+    "id": "cd644f11-1fdd-480f-9a45-b5bdf0236c71",
+    "name": "زز",
+    "price": 0,
+    "quantity": 0
   }
 ]
