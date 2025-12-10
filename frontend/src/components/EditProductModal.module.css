@@ -1,0 +1,51 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  background: white;
+  padding: 25px;
+  width: 360px;
+  border-radius: 18px;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form input {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.saveBtn {
+  background: #4f9deb;
+  padding: 8px 20px;
+  border-radius: 10px;
+  color: white;
+  border: none;
+}
+
+.cancelBtn {
+  background: #eee;
+  padding: 8px 20px;
+  border-radius: 10px;
+  border: none;
+}
