@@ -4,6 +4,7 @@ import SignUpPage from "./components/SignUpPage";
 import Dashboard from "./components/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { Toaster } from "react-hot-toast";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="/*" element={<ErrorPage />} />
       </Routes>
     </>
   );

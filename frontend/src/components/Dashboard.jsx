@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 import Pagination from "./Pagination";
 import AddProductModal from "./AddProductModal";
 import DeleteProductModal from "./DeleteProductModal";
+import EditProductModal from "./EditProductModal";
 import http from "../api/http";
 import toast from "react-hot-toast";
-import EditProductModal from "./EditProductModal";
 
 function Dashboard() {
   const [products, setProducts] = useState([]);
@@ -37,9 +37,16 @@ function Dashboard() {
   useEffect(() => {
     fetchProducts();
   }, []);
-  const filteredProducts = products.filter((p) =>
-    p.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+
+  const filteredProducts = products.filter((p) => {
+    const q = searchQuery.toLowerCase();
+    return (
+      p.name.toLowerCase().includes(q) ||
+      p.id.toLowerCase().includes(q) ||
+      String(p.price).includes(q) ||
+      String(p.quantity).includes(q)
+    );
+  });
 
   async function addProduct(data) {
     try {
@@ -71,8 +78,39 @@ function Dashboard() {
 
       toast.success("محصول حذف شد");
       setShowDeleteModal(false);
+
+      // برگشت صفحه اگر خالی شد
+      const newTotal = filteredProducts.length - 1;
+      const maxPage = Math.ceil(newTotal / itemsPerPage);
+      if (currentPage > maxPage && currentPage > 1) {
+        setCurrentPage(currentPage - 1);
+      }
     } catch {
       toast.error("خطا در حذف محصول!");
+    }
+  }
+
+  function handleEditClick(product) {
+    setEditProduct(product);
+    setShowEditModal(true);
+  }
+
+  async function updateProduct(data) {
+    try {
+      const body = {
+        name: data.name,
+        price: data.price,
+        quantity: data.quantity,
+      };
+
+      const res = await http.put(`/products/${data.id}`, body);
+
+      setProducts((prev) => prev.map((p) => (p.id === data.id ? res.data : p)));
+
+      toast.success("ویرایش انجام شد");
+      setShowEditModal(false);
+    } catch {
+      toast.error("خطا در ویرایش محصول");
     }
   }
 
@@ -84,26 +122,10 @@ function Dashboard() {
     startIndex + itemsPerPage
   );
 
-  function handleEditClick(product) {
-    setEditProduct(product);
-    setShowEditModal(true);
-  }
-
-  async function updateProduct(data) {
-    try {
-      await http.put(`/products/${data.id}`, data);
-
-      setProducts((prev) => prev.map((p) => (p.id === data.id ? data : p)));
-
-      toast.success("ویرایش انجام شد");
-    } catch {
-      toast.error("خطا در ویرایش محصول");
-    }
-  }
-
   return (
     <>
       <SearchBox onSearch={(value) => setSearchQuery(value)} />
+
       <ManageProducts onAdd={() => setIsShowForm(true)} />
 
       <TableProducts
@@ -112,11 +134,13 @@ function Dashboard() {
         onEdit={handleEditClick}
       />
 
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={setCurrentPage}
-      />
+      {totalPages > 1 && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
+        />
+      )}
 
       {showForm && (
         <AddProductModal
