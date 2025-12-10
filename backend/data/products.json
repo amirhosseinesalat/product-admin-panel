@@ -1,11 +1,5 @@
 [
   {
-    "id": "95e4c9d8-95ee-46ab-94bb-3cf8822b799a",
-    "name": "test8",
-    "price": 67,
-    "quantity": 56
-  },
-  {
     "id": "1cb04a8f-60e2-40e8-82cf-5ea505813c88",
     "name": "test9",
     "price": 67,
@@ -28,12 +22,6 @@
     "name": "44",
     "price": 44,
     "quantity": 4
-  },
-  {
-    "id": "5238781a-7339-41e2-bf62-0a17c74ff37b",
-    "name": "ققت",
-    "price": 2424,
-    "quantity": 24
   },
   {
     "id": "f40ea649-6a7f-4da9-b6bd-47f41a3113cb",

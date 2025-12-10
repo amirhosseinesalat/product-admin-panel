@@ -1,7 +1,7 @@
 import styles from "./TableProducts.module.css";
 import { FiEdit, FiTrash } from "react-icons/fi";
 
-function TableProducts({ products, onDelete }) {
+function TableProducts({ products, onDelete, onEdit }) {
   if (!Array.isArray(products)) {
     return <div>در حال بارگذاری...</div>;
   }

@@ -1,51 +1,95 @@
 .backdrop {
   position: fixed;
   inset: 0;
-  backdrop-filter: blur(6px);
-  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  background: rgba(63, 59, 59, 0.15);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 200;
 }
 
 .modal {
-  background: white;
-  padding: 25px;
-  width: 360px;
-  border-radius: 18px;
-  text-align: center;
+  width: 380px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px 32px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  direction: rtl;
+  text-align: right;
 }
 
-.form input {
-  padding: 8px 10px;
+.title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 22px;
+  color: #333;
+}
+
+.label {
+  margin-right: 5px;
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #dcdcdc;
   border-radius: 10px;
-  border: 1px solid #ccc;
+  font-size: 14px;
+  margin-bottom: 18px;
+  outline: none;
+  transition: all 0.2s ease;
+  background: #F2F2F2;
+}
+
+.input:focus {
+  border-color: #4c82f5;
+  box-shadow: 0 0 0 2px rgba(76, 130, 245, 0.2);
 }
 
 .actions {
-  margin-top: 10px;
   display: flex;
   justify-content: space-between;
+  margin-top: 10px;
 }
 
-.saveBtn {
-  background: #4f9deb;
-  padding: 8px 20px;
+.cancel {
+  width: 47%;
+  background: #dfdfdf;
+  border: none;
+  padding: 10px 22px;
   border-radius: 10px;
+  cursor: pointer;
+  color: #555;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.cancel:hover {
+  background: #d5d5d5;
+}
+
+.submit {
+  width: 50%;
+  background: #55a3f0;
   color: white;
   border: none;
+  padding: 10px 26px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s ease;
 }
 
-.cancelBtn {
-  background: #eee;
-  padding: 8px 20px;
-  border-radius: 10px;
-  border: none;
+.submit:hover {
+  background: #3a6de0;
 }

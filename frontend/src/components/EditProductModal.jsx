@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import styles from "./EditProductModal.module.css";
 
 function EditProductModal({ product, onClose, onSubmit }) {
@@ -30,27 +30,30 @@ function EditProductModal({ product, onClose, onSubmit }) {
   return (
     <div className={styles.backdrop}>
       <div className={styles.modal}>
-        <h3>ویرایش محصول</h3>
+        <h3 className={styles.title}>ویرایش محصول</h3>
 
-        <form onSubmit={handleSubmit} className={styles.form}>
-          <label>نام کالا</label>
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <label className={styles.label}>نام کالا</label>
           <input
+            className={styles.input}
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
           />
 
-          <label>موجودی</label>
+          <label className={styles.label}>تعداد موجودی</label>
           <input
+            className={styles.input}
             type="number"
             value={stock}
             onChange={(e) => setStock(e.target.value)}
             required
           />
 
-          <label>قیمت</label>
+          <label className={styles.label}>قیمت</label>
           <input
+            className={styles.input}
             type="number"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
@@ -58,14 +61,10 @@ function EditProductModal({ product, onClose, onSubmit }) {
           />
 
           <div className={styles.actions}>
-            <button type="submit" className={styles.saveBtn}>
-              ثبت اطلاعات جدید
+            <button type="submit" className={styles.submit}>
+              ذخیره تغییرات
             </button>
-            <button
-              type="button"
-              onClick={onClose}
-              className={styles.cancelBtn}
-            >
+            <button type="button" className={styles.cancel} onClick={onClose}>
               انصراف
             </button>
           </div>

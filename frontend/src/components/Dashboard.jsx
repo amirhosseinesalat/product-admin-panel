@@ -7,6 +7,7 @@ import AddProductModal from "./AddProductModal";
 import DeleteProductModal from "./DeleteProductModal";
 import http from "../api/http";
 import toast from "react-hot-toast";
+import EditProductModal from "./EditProductModal";
 
 function Dashboard() {
   const [products, setProducts] = useState([]);
@@ -14,7 +15,8 @@ function Dashboard() {
   const [showForm, setIsShowForm] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
-
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [editProduct, setEditProduct] = useState(null);
   const itemsPerPage = 5;
 
   async function fetchProducts() {
@@ -76,13 +78,33 @@ function Dashboard() {
     currentPage * itemsPerPage
   );
 
+  function handleEditClick(product) {
+    setEditProduct(product);
+    setShowEditModal(true);
+  }
+
+  async function updateProduct(data) {
+    try {
+      await http.put(`/products/${data.id}`, data);
+
+      setProducts((prev) => prev.map((p) => (p.id === data.id ? data : p)));
+
+      toast.success("ویرایش انجام شد");
+    } catch {
+      toast.error("خطا در ویرایش محصول");
+    }
+  }
+
   return (
     <>
       <SearchBox />
       <ManageProducts onAdd={() => setIsShowForm(true)} />
 
-    
-      <TableProducts products={paginatedProducts} onDelete={handleDeleteClick} />
+      <TableProducts
+        products={paginatedProducts}
+        onDelete={handleDeleteClick}
+        onEdit={handleEditClick}
+      />
 
       <Pagination
         currentPage={currentPage}
@@ -94,6 +116,14 @@ function Dashboard() {
         <AddProductModal
           onClose={() => setIsShowForm(false)}
           onSubmit={addProduct}
+        />
+      )}
+
+      {showEditModal && (
+        <EditProductModal
+          product={editProduct}
+          onClose={() => setShowEditModal(false)}
+          onSubmit={updateProduct}
         />
       )}
 
