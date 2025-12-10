@@ -17,6 +17,8 @@ function Dashboard() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showEditModal, setShowEditModal] = useState(false);
   const [editProduct, setEditProduct] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
+
   const itemsPerPage = 5;
 
   async function fetchProducts() {
@@ -35,6 +37,9 @@ function Dashboard() {
   useEffect(() => {
     fetchProducts();
   }, []);
+  const filteredProducts = products.filter((p) =>
+    p.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   async function addProduct(data) {
     try {
@@ -71,11 +76,12 @@ function Dashboard() {
     }
   }
 
-  const totalPages = Math.ceil(products.length / itemsPerPage);
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
 
-  const paginatedProducts = products.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const paginatedProducts = filteredProducts.slice(
+    startIndex,
+    startIndex + itemsPerPage
   );
 
   function handleEditClick(product) {
@@ -97,7 +103,7 @@ function Dashboard() {
 
   return (
     <>
-      <SearchBox />
+      <SearchBox onSearch={(value) => setSearchQuery(value)} />
       <ManageProducts onAdd={() => setIsShowForm(true)} />
 
       <TableProducts

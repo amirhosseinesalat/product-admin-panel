@@ -31,7 +31,7 @@ function TableProducts({ products, onDelete, onEdit }) {
               <tr key={p.id}>
                 <td>{p.name}</td>
                 <td>{p.quantity}</td>
-                <td>{p.price}</td>
+                <td>{p.price}   هزار تومان</td>
                 <td>{p.id}</td>
                 <td className={styles.actions}>
                   <button className={styles.edit} onClick={() => onEdit(p)}>
