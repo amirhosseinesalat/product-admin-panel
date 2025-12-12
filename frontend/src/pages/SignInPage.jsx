@@ -1,4 +1,4 @@
-import styles from "./signPage.module.css";
+import styles from "../components/signPage.module.css";
 import Union from "../images/Union.png";
 import Input from "../inputs/Input";
 import { validateSchema } from "../validation/validateSchema";

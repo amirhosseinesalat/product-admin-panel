@@ -1,4 +1,4 @@
-import styles from "./signPage.module.css";
+import styles from "../components/signPage.module.css";
 import Union from "../images/Union.png";
 import Input from "../inputs/Input";
 import { useForm } from "react-hook-form";
@@ -21,7 +21,6 @@ function SignUpPage() {
 
   async function submitHandler(data) {
     try {
-     
       const sendData = {
         username: data.username,
         password: data.password,

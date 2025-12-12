@@ -1,11 +1,11 @@
-import ManageProducts from "./ManageProducts";
-import SearchBox from "./SearchBox";
-import TableProducts from "./TableProducts";
+import ManageProducts from "../components/ManageProducts";
+import SearchBox from "../components/SearchBox";
+import TableProducts from "../components/TableProducts";
 import { useState, useEffect } from "react";
-import Pagination from "./Pagination";
-import AddProductModal from "./AddProductModal";
-import DeleteProductModal from "./DeleteProductModal";
-import EditProductModal from "./EditProductModal";
+import Pagination from "../components/Pagination";
+import AddProductModal from "../components/AddProductModal";
+import DeleteProductModal from "../components/DeleteProductModal";
+import EditProductModal from "../components/EditProductModal";
 import http from "../api/http";
 import toast from "react-hot-toast";
 
