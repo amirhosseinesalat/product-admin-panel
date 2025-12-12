@@ -1,16 +1,92 @@
-# React + Vite
+Product Management Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a simple and clean product management dashboard built with React on the frontend and Node.js/Express on the backend.
+It supports full product CRUD operations, search functionality, pagination, and JWT-based authentication.
 
-Currently, two official plugins are available:
+Features
+Frontend
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Add, edit, delete, and view products
 
-## React Compiler
+Modern modal UI for all actions
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Pagination and product filtering
 
-## Expanding the ESLint configuration
+Search by product name
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Toast notifications for user feedback
+
+Axios instance with automatic token handling
+
+Backend
+
+RESTful API for product management
+
+JWT authentication
+
+Protected routes using middleware
+
+Modular routing structure
+
+CORS enabled
+
+Swagger documentation included
+
+Technologies Used
+Frontend
+
+React
+
+Axios
+
+React Hot Toast
+
+React Icons
+
+CSS Modules
+
+Backend
+
+Node.js / Express
+
+JSON Web Token (JWT)
+
+CORS
+
+Swagger UI
+
+Getting Started
+Backend Setup
+cd backend
+npm install
+npm start
+
+The server automatically selects the first available port (default: 3000).
+Swagger documentation is available at:
+
+/api-docs
+
+Frontend Setup
+cd frontend
+npm install
+npm start
+
+Authentication
+
+A JWT token is stored in localStorage after a successful login:
+
+token: "eyJhbGciOi..."
+
+Axios automatically attaches the token for all authenticated requests:
+
+Authorization: Bearer <token>
+
+Debugging Notes
+
+Log API responses while developing product CRUD
+
+Ensure searchQuery is passed correctly
+
+Verify Axios token headers when receiving 401 or 403 errors
+
+Check product IDs when updating or deleting
