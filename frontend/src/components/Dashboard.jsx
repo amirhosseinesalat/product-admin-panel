@@ -39,13 +39,7 @@ function Dashboard() {
   }, []);
 
   const filteredProducts = products.filter((p) => {
-    const q = searchQuery.toLowerCase();
-    return (
-      p.name.toLowerCase().includes(q) ||
-      p.id.toLowerCase().includes(q) ||
-      String(p.price).includes(q) ||
-      String(p.quantity).includes(q)
-    );
+    return p.name.toLowerCase().includes(searchQuery.toLowerCase());
   });
 
   async function addProduct(data) {
@@ -79,7 +73,6 @@ function Dashboard() {
       toast.success("محصول حذف شد");
       setShowDeleteModal(false);
 
-      // برگشت صفحه اگر خالی شد
       const newTotal = filteredProducts.length - 1;
       const maxPage = Math.ceil(newTotal / itemsPerPage);
       if (currentPage > maxPage && currentPage > 1) {

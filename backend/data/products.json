@@ -1,74 +1,14 @@
 [
   {
-    "id": "6a08a8c1-6a2c-4575-b3e7-c0a42706c458",
-    "name": "لدل",
-    "price": 99,
-    "quantity": 99
+    "id": "fc394d9b-8399-4a03-9d89-6e63a669a0c4",
+    "name": "hh",
+    "price": 2,
+    "quantity": 2
   },
   {
-    "id": "a3f2140b-c833-42a8-8756-2a060b8a9220",
-    "name": "88",
-    "price": 99,
-    "quantity": 99
-  },
-  {
-    "id": "5cc72240-ff3c-459d-a2ad-df6cb652ab73",
-    "name": "44",
-    "price": 44,
-    "quantity": 4
-  },
-  {
-    "id": "f40ea649-6a7f-4da9-b6bd-47f41a3113cb",
-    "name": "42",
-    "price": 42,
-    "quantity": 42
-  },
-  {
-    "id": "33ed15eb-83a4-4a65-90f5-8c122422c226",
-    "name": "24",
-    "price": 42,
-    "quantity": 42
-  },
-  {
-    "id": "02a0c793-c5e6-4150-86ea-ae4cf8cae172",
-    "name": "24",
-    "price": 42,
-    "quantity": 24
-  },
-  {
-    "id": "a408bf8c-f190-48a5-8288-fde302c14e8d",
-    "name": "42",
-    "price": 42,
-    "quantity": 42
-  },
-  {
-    "id": "327de16c-1e0f-41a2-ac67-2f77ba829822",
-    "name": "42",
-    "price": 24,
-    "quantity": 42
-  },
-  {
-    "id": "beb112da-d6a1-481e-b780-f3fa99bb0692",
-    "name": "42",
-    "price": 42,
-    "quantity": 4
-  },
-  {
-    "id": "82c6c170-439c-4a61-bbec-10da8149fabb",
-    "name": "24",
-    "price": 42,
-    "quantity": 42
-  },
-  {
-    "id": "eba2c353-877f-4a42-bf3e-1e2ed45e7058",
-    "name": "24",
-    "price": 42,
-    "quantity": 42
-  },
-  {
-    "id": "cd644f11-1fdd-480f-9a45-b5bdf0236c71",
-    "name": "زز",
-    "price": 0,
-    "quantity": 0
+    "id": "d5594221-d2c2-401c-ba42-8425a563e2da",
+    "name": "22",
+    "price": 22,
+    "quantity": 22
   }
 ]

@@ -21,7 +21,9 @@ function SearchBox({ onSearch }) {
 
         <div className={styles.userInfo}>
           <p className={styles.name}>امیرحسین اصالت</p>
-          <span className={styles.role}>مدیر</span>
+          <span className={styles.role} style={{ marginTop: "10px" }}>
+            مدیر
+          </span>
         </div>
       </div>
     </div>

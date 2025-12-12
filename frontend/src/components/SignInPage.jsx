@@ -13,8 +13,8 @@ function SignInPage() {
 
   async function submitHandler(data) {
     async function submitHandler(data) {
-  console.log("DATA SENT →", data);
-}
+      console.log("DATA SENT →", data);
+    }
 
     try {
       const res = await login(data);
