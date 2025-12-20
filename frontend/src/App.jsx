@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import SignUpPage from "./features/SignUpPage";
-import SignInPage from "./features/SignInPage";
-import Dashboard from "./features/Dashboard";
+import SignInPage from "./pages/SignInPage";
+import SignUpPage from "./pages/SignUpPage";
+import Dashboard from "./pages/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { Toaster } from "react-hot-toast";
 import ErrorPage from "./components/ErrorPage";
